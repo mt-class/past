@@ -76,57 +76,6 @@
     </tr>
   </thead>
   <tbody>
-
-<script type="text/javascript">
-var assNo = 4;
-
-var old_scoreranks = new Array();
-for (i = 0; i < olddata.length; i++) {
-  var prevscore = (i == 0) ? -1 : olddata[i-1][1+assNo];
-  var score = olddata[i][1+assNo];
-  if (score != prevscore)
-    old_scoreranks[score] = i;
-}
-
-var scoreranks = new Array();
-for (i=0; i<data.length; i++){
-  var user = data[i][0];
-
-  document.write('<tr id="' + user + '"');
-  if (i%2==1){ document.write(' bgcolor="lightblue"'); }
-  document.write('>');
-
-  var prevscore = (i == 0) ? -1 : data[i-1][1+assNo];
-  var score = data[i][1+assNo];
-  if (score != prevscore) {
-    scoreranks[score] = i;
-    document.write('<td>' + (i+1) + '</td>');
-  } else {
-    document.write('<td></td>');
-  }
-
-  var rank = scoreranks[score];
-  var oldrank = (score in old_scoreranks) ? old_scoreranks[score] : 100000;
-
-  if (rank > oldrank)
-    document.write('<td><img class="arrow" src="img/down.png" /></td>');
-  else if (rank < oldrank)
-    document.write('<td><img class="arrow" src="img/up.png" /></td>');
-  else
-    document.write('<td></td>');
-  document.write('<td>' + data[i][0] + '</td>');
-  document.write('<td align="right">' + data[i][1] + '</td>');
-  document.write('<td align="right">' + data[i][2] + '</td>');
-  document.write('<td align="right">' + data[i][3] + '</td>');
-  document.write('<td align="right">' + data[i][4] + '</td>');
-  document.write('<td align="right">' + data[i][5] + '</td>');
-  document.write('</tr>');
-}
-
-$("#baseline").css({'background-color': 'PaleGoldenRod'});
-$("#default").css({'background-color': 'LightCoral'});
-$("#oracle").css({'background-color': 'LimeGreen'});
-</script>
   </tbody>
 </table>
   </div>
